@@ -1,4 +1,4 @@
-# beamer-theme
+# Express-Beamer
 
 [/slide.pdf](/slide.pdf) is the output pdf.
 
