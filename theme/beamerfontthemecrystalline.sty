@@ -1,0 +1,43 @@
+\mode<presentation>
+
+% テーマのフォントを決めています
+\setbeamerfont{title}{size=\LARGE, series = \bfseries}
+\setbeamerfont{subtitle}{size=\normalsize, series = \mdseries}
+\setbeamerfont{date}{size = \footnotesize}
+\setbeamerfont{institute}{size = \footnotesize}
+\setbeamerfont{author}{size = \large}
+
+\setbeamertemplate{itemize items}[square]
+
+\setbeamerfont{frametitle}{size = \Large, series = \bfseries}
+\setbeamerfont{footnote}{size = \tiny, series = \mdseries}
+
+\setbeamerfont{page number in head/foot}{size = \large}
+
+% \setbeamerfont{section in toc}{size = \Large, series = \bfseries}
+% \setbeamerfont{subsection in toc}{size = \Large, series = \bfseries}
+\setbeamerfont{section in toc}{size = \large, series = \bfseries}
+\setbeamerfont{subsection in toc}{size = \large, series = \bfseries}
+\setbeamerfont{section in toc shaded}{size = \normalsize, series = \mdseries}
+\setbeamerfont{subsection in toc shaded}{size = \normalsize, series = \mdseries}
+
+
+\setbeamertemplate{bibliography item}[text]
+
+% \DeclareFieldFormat{title}{{\rmfamily\itshape #1}}
+% \DeclareFieldFormat[book]{title}{{\rmfamily\itshape #1}}
+% \DeclareFieldFormat[article]{title}{{\rmfamily\itshape #1}}
+% \DeclareFieldFormat[inproceedings]{title}{{\rmfamily\itshape #1}}
+
+\DeclareFieldFormat{title}{{\itshape #1}}
+\DeclareFieldFormat[thesis]{title}{{\itshape #1}}
+\DeclareFieldFormat[book]{title}{{\itshape #1}}
+\DeclareFieldFormat[article]{title}{{\itshape #1}}
+\DeclareFieldFormat[inproceedings]{title}{{\itshape #1}}
+
+\AtBeginBibliography{\footnotesize\mdseries}
+
+\mode
+<all>
+
+

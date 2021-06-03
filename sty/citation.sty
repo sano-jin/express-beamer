@@ -1,0 +1,61 @@
+% This is for the custom "footcite"
+% so that we can have a more detailed info in the footnote when we cite in the slide.
+
+% fullcite したときに，ホントに「フルに」出典を書かないようにする
+% footcite を foot note を使って無理やり作り直したのだけれど，
+% そこで fullcite を使っているから（超アホなことをしている気はする）
+%
+% This clears some fields (e.g. url) when we use "fullcite".
+% This is needed since I have created my own "footcite" using the "fullcite"
+% (I do not want my footnotes to be a mess).
+% Although I do think this is really a STUPID way to achieve that.
+% (please tell me if you have a little more smart idea...)
+\DeclareCiteCommand{\fullcite}%
+  {\usebibmacro{prenote}}%
+  {\clearfield{url}%
+   \clearfield{pages}%
+   \clearfield{school}%
+   \clearfield{institution}%
+   \clearfield{pagetotal}%
+   \clearfield{edition}%
+   \clearfield{labelyear}%
+   \clearfield{issn}%
+   \clearfield{isbn}%
+   \clearfield{doi}%
+   \clearfield{volume}%
+   \clearfield{number}%
+   \clearfield{pages}%
+   \clearfield{issue_date}%
+   \clearfield{editor}%
+   \clearlist{location}%
+   \clearfield{note}%
+   \clearlist{language}%
+   \clearfield{day}%
+   \clearfield{month}%
+   \clearfield{series}%
+   \clearfield{subtitle}%
+%   \clearfield{urlseen}%
+   \clearfield{urldate}%
+   \clearfield{urlyear}
+   \clearfield{urlmonth}
+   \clearfield{series}%
+   \ifentrytype{inproceedings}{%
+    \clearfield{booktitle}%
+   }{}%
+   \usedriver%
+     {\DeclareNameAlias{sortname}{default}}%
+     {\thefield{entrytype}}}%
+  {\multicitedelim}%
+  {\usebibmacro{postnote}
+}%
+  
+% 自作 footcite（アホ大戦!）
+% My own footcite (Again, it's rubbish...!)
+\renewcommand{\footcite}[1]{%
+    \supercite{#1}%
+    \footnotetext{%
+      \begin{tabular}{@{}p{2em}@{}p{\textwidth - 2em}}%
+        \cite*{#1}&\fullcite{#1}%
+      \end{tabular}%
+    }%
+}

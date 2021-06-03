@@ -1,0 +1,67 @@
+\newcommand{\code}[1]{\fbox{\texttt{#1}}}
+
+\begin{frame}{発表概要}
+  \begin{description}
+  \item[目的]
+    HyperLMNtal\footcite{hyperlmntal} に \Emph{形式的な定義} を与えたい
+  \item[背景]
+    Hyperlink は \Emph{実装済みだが形式的定義はなかった}
+  \item[貢献]
+    HyperLMNtal に対して形式的定義を与え，\\
+    重要な性質については証明を行なった
+  \end{description}
+\end{frame}
+
+
+\section[Background]{背景：LMNtal・HyperLMNtal}
+
+\begin{frame}{グラフ書き換え言語 LMNtal\footcite{logiclmntal}}
+  LMNtal は\dots
+  \begin{description}
+  \item[特徴]
+    1対1接続の \emph{リンク \small （辺）}によってグラフを構成する\\
+    \emph{アトム \small （ラベル付き頂点）} の多重集合を\\
+    \emph{ルール} のパターンマッチと書き換えによって計算を進める
+  \item[利点]
+    Null，Dangling pointer を発生させずにグラフを扱える
+  \end{description}
+
+  ただし，\emph{1対１接続のリンクしかないと不便} なこともある
+  \begin{itemize}
+    \item 動的に被参照数が変化する共有データの実装など
+  \end{itemize}
+
+  そこで，任意数の端点を持てる \Emph{Hyperlink} が実装されている
+\end{frame}
+
+
+\begin{frame}{LMNtal の拡張｜HyperLMNtal\footcite{hyperlmntal}}
+
+  Hyperlink は \code{\$x} か \code{!X} のように記述する
+
+  \lstinputlisting[language=lmntal]{fig/hyperlinks.lmn}
+
+\end{frame}
+
+
+
+\begin{frame}{HyperLMNtal の問題点｜形式的定義がない}
+  \begin{itemize}
+  \item
+    先述のコードの実行結果（と過程）を保証するものは\\
+    実装とそのアルゴリズムだけ
+    \begin{itemize}
+    \item
+      コードの挙動を正しく理解するために\\
+      コンパイラ（と実行時処理系）まで理解する必要がある
+    \end{itemize}
+  \item
+    今後の発展のためには形式的議論に耐え得るような定義が不可欠
+    \begin{itemize}
+    \item
+      拡張や制約の追加などを行う際に\\
+      そもそも元々の定義がないとまともな議論を期待できない
+    \end{itemize}
+    
+  \end{itemize}  
+\end{frame}

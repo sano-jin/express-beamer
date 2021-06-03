@@ -1,0 +1,71 @@
+\section[Problem]{HyperLMNtal 定式化における課題}
+\begin{frame}{The difficulty in defining fusion}
+
+  \fbox{$(a(!X), (!X \bowtie\ !Y, b(!X, !Y)))$}
+  が
+  \begin{itemize}
+  \item[$\equiv$] 
+    \fbox{$(a(!X), b(!Y, !Y))$}
+  \end{itemize}
+  になるとまずい
+  
+  Therefore, we cannot just define the structural congruence rule as  
+  \[(!X \bowtie\ !Y, P) \equiv P[!Y/!X]
+  \mbox{\hspace{2em} if \(!X\) occurs free in \(P\)}\]
+  
+  We must ensure that there is no \mfbox{!X} occurs outside of the \mfbox{P}\\
+  That is, \mfbox{!X} should be a \emph{local link} of \mfbox{(!X \bowtie\ !Y, P)}
+\end{frame}
+
+\begin{frame}{Hyper でない LMNtal ではなぜ大丈夫なのか？}
+
+  再掲：(E9)
+  $(X = Y, P) \equiv P[Y/X]$
+  \hspace{1em}
+  if $P$ is an atom and \underline{$X$ occurs free in $P$}
+
+  \vspace{2em}
+  
+  In (not-hyper) LMNtal, a link appeared twice is a local link
+  \begin{itemize}
+    \thusitem
+    the condition of (E9), \underline{``\textit{if \(X\) occurs free in \(P\)}''}\\
+    requires the \mfbox{X} to be a local link in \mfbox{(X = Y, P)}
+    \item[\(\because\)]
+      \mfbox{X} occurs in both \mfbox{X = Y} and \mfbox{P}.
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}{ダメな回避方法}
+
+  This problem would not happen if we always ``leave'' the \mfbox{!X \bowtie\ !Y}
+
+  For example, as 
+  \[(!X \bowtie\ !Y, P) \equiv\ (!X \bowtie\ !Y, P[!Y/!X]) \]
+  
+  でも結局，\mfbox{!X} の局所性がわからないと\\
+  いつまで経っても \mfbox{!X \bowtie\ !Y} を消して良いのかわからない.
+
+  If we cannot diminish the \mfbox{!X \bowtie\ !Y},\\
+  then we cannot create it neither (by applying the rule reversely).
+  
+  Therefore, the existence of the \mfbox{!X \bowtie\ !Y} would let the process
+  different from that does not have it,
+  which is certainly not the desired behavior based on the current implementation.
+  
+\end{frame}
+
+\begin{frame}{結論}
+  Hyperlink にも \Emph{局所性を定義する必要がある}
+
+  \begin{itemize}
+  \item
+    ただしハイパーリンクは出現回数を数えるだけでは\\
+    局所性の判別ができない
+    \thusitem
+    パイ計算\footcite{pi}にならって \mfbox{\nu} を入れて\\
+    明示的に局所性を導入した
+  \end{itemize}
+\end{frame}
+

@@ -1,0 +1,301 @@
+\section{Introduction}
+
+\begin{frame}
+  \frametitle{Beamer の特徴：数式が書ける}
+  
+  基本的に，\LaTeX のメリット{\footnotesize （とデメリット）}がそのまま当てはまる
+  \begin{itemize}
+    \okitem \emph{数式を書くのが GUI 系のアプリより遥かに楽}
+    \okitem \LaTeX の文書との連携が楽
+    \ngitem 図を作るのはめちゃめちゃ大変\footcite{tikz-nakata}，コンパイルが重い
+  \end{itemize}
+
+  \begin{block}{However, }
+    ゼミで一番ありがちな指摘は，「\Emph{定義は?}」
+    \begin{itemize}
+      \thusitem \emph{数式が書けるというのは大きい}
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{使い方：Fork \(\rightarrow\) make} 
+
+  \begin{block}{準備}
+    \begin{enumerate}
+    \item
+      このレポジトリを \emph{Fork} する
+      \begin{itemize}
+        \item 右上の Fork \(\rightarrow\) フォーク先 として自分を選択
+      \end{itemize}
+    \item
+      ローカルでビルドする場合，\\
+      通常の \LaTeX 環境に加えて \emph{latexmk をインストールする}
+      \begin{itemize}
+        \butitem そうでない場合は docker をインストールする
+      \end{itemize}
+    \end{enumerate}
+  \end{block}
+
+  \begin{block}{pdf のビルド}
+  latexmk を使う場合は\ \raise1pt\hbox{\fbox{\lstinline[language = sh]|make|}}
+  \begin{itemize}
+    \butitem
+    docker を使う場合は\ \raise1pt\hbox{\fbox{\lstinline[language = sh]|make ondocker|}}
+  \end{itemize}
+  \end{block}
+\end{frame}
+
+\section{はじめてのスライド}
+
+\begin{frame}[fragile]
+  \frametitle{はじめてのスライド：簡単なサンプル}
+  \begin{columns}
+    \begin{column}{0.55\textwidth}
+      \lstinputlisting[
+        language = tex,
+        linewidth = \textwidth
+      ]{./fig/sample-02.tex}
+    \end{column}
+    \begin{column}{0.45\textwidth}
+      \begin{itemize}
+        \item
+        全体の文字の大きさを\\
+        指定できる{\footnotesize （現在 10 pt）}
+        \item
+        コメントは \alert{\% ではじめる}
+        \item
+        スペースをあけたいときは\\
+        「\textbackslash\textvisiblespace」とする
+        \item
+        Beamer では，\\
+        一枚一枚のスライドを\\
+        「\Emph{フレーム}」という
+      \end{itemize}
+    \end{column}
+  \end{columns}
+
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{はじめてのスライド：箇条書き・リスト}
+  \begin{columns}
+    \begin{column}{0.51\textwidth}
+      \lstinputlisting[
+        language = tex,
+        linewidth = \textwidth
+      ]{./fig/sample-03.tex}
+    \end{column}
+    \begin{column}{0.49\textwidth}
+      箇条書きには itemize を使う
+  
+      \begin{itemize}
+      \item これは 1 番目
+      \item これは 2 番目
+      \item これは 3 番目
+      \end{itemize}
+    \end{column}
+  \end{columns}
+
+  \begin{columns}
+    \begin{column}{0.51\textwidth}
+      \lstinputlisting[
+        language = tex,
+        linewidth = \textwidth
+      ]{./fig/sample-04.tex}
+    \end{column}
+    \begin{column}{0.49\textwidth}
+      順序があるときは enumerate を使う
+  
+      \begin{enumerate}
+      \item まずあれやって
+      \item 次にこれやる
+      \end{enumerate}
+    \end{column}
+  \end{columns}
+
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{はじめてのスライド：箇条書きを{\normalsize ちょっと}良くするコツ}
+  \begin{columns}
+    \begin{column}{0.54\textwidth}
+      \lstinputlisting[
+        language = tex,
+        linewidth = \textwidth
+      ]{./fig/sample-05.tex}
+    \end{column}
+    \begin{column}{0.46\textwidth}
+      \begin{itemize}
+        \ngitem
+        全部箇条書きだと，\\
+        項目間の関係がわからない
+        \thusitem 記号をうまく使うと良いかも
+      \end{itemize}
+    \end{column}
+  \end{columns}
+
+  \begin{mybox}{\texttt{\textbackslash item} マクロ一覧%
+        {\footnotesize （勝手に定義した）}
+    }
+    \begin{itemize}
+      \okitem \verb|\okitem|: OK !
+      \ngitem \verb|\ngitem|: NG
+      \thusitem \verb|\thusitem|: Thus, \dots
+      \butitem \verb|\butitem|: But, \dots
+      \egitem \verb|\egitem|: For example, \dots
+    \end{itemize}
+  \end{mybox}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{はじめてのスライド：強調}
+  \begin{enumerate}
+  \item
+    \emph{強調} するときは \verb|\emph{強調}|%
+    \footnote{\insertfootnotemark
+    ぼくが勝手に定義を上書きした（太くなるようにしてみた）
+    }
+  \item
+    \Emph{すごい強調} するときは \verb|\Emph{すごい強調}|%
+    \footnote{\insertfootnotemark
+    ぼくが勝手に定義した
+    }
+  \item \EMPH{めちゃめちゃすごい強調} するときは \verb|\EMPH{めちゃめちゃすごい強調}|%
+    \footnote{\insertfootnotemark
+    ぼくが勝手に定義した
+    }
+  \end{enumerate}
+  
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{はじめてのスライド：ブロック・定義・例}
+  \begin{columns}
+    \begin{column}{0.52\textwidth}
+      \lstinputlisting[
+        language = tex
+      ]{./fig/sample-06.tex}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{block}{ブロックのタイトル}
+        本来ブロックは背景とは違う色で塗りつぶされるが，
+        ごちゃごちゃして見えるのでやめてみた
+      \end{block}
+    \end{column}
+  \end{columns}
+  \begin{columns}
+    \begin{column}{0.52\textwidth}
+      \lstinputlisting[
+        language = tex
+      ]{./fig/sample-07.tex}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{definition}
+        1と自分自身しか約数を持たない，\\
+        1 より大きい自然数を \emph{素数} という
+      \end{definition}
+
+      \begin{example}   
+        \begin{itemize}
+          \okitem 2 は素数．
+          \okitem 3 も素数．
+          \ngitem 4 は素数ではない．
+        \end{itemize}
+      \end{example}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{はじめてのスライド：ソースコード}
+  \lstinputlisting[
+    language = tex,
+    linewidth = 0.7\textwidth
+  ]{./fig/sample-10.tex}
+  \begin{itemize}
+    \item
+    frame のオプションに \Emph{fragile を渡す必要がある}
+    \item
+    ソースファイルは，Makefile があるところからの相対パスで指定する\\
+    （この例では，\raise1pt\hbox{\fbox{\lstinline[language=sh]|./fig/sample-10.tex|}}）
+    \item
+    オプションは色々ある
+    \begin{itemize}
+      \egitem language, linewidth, $\dots$
+    \end{itemize}
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{はじめてのスライド：画像の挿入}
+  \begin{columns}
+    \begin{column}{0.67\textwidth}
+      \lstinputlisting[
+        language = tex,
+        linewidth = \textwidth
+      ]{./fig/sample-11.tex}
+    \end{column}
+    \begin{column}{0.33\textwidth}
+      \includegraphics[width = 3cm]{./fig/logo}
+    \end{column}
+  \end{columns}
+    ファイルは，Makefile があるところからの相対パスで指定する\\
+    （この例では，\raise1pt\hbox{\fbox{\lstinline[language=sh]|./fig/logo.jpg|}}）  
+\end{frame}
+
+\section{ちょっとカスタマイズ}
+
+{
+\definecolor{maincolor}{RGB}{210, 100, 130}
+\definecolor{accentcolor}{RGB}{0, 170, 210}
+
+\begin{frame}{ちょっとカスタマイズ：色のテーマを変更}
+  \begin{block}{色の変更}
+    \Emph{maincolor}，\EMPH{accentcolor} を設定すると，\\
+    スライド全体の色を変えられます
+    \lstinputlisting[
+      language = tex,
+      linewidth = \textwidth
+    ]{./fig/sample-13.tex}
+    \begin{itemize}
+      \ngitem \textcolor{blue}{原色} そのままとかじゃなくて
+      \okitem かっこいい色を探してみてください
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+}
+
+{
+\setbeamertemplate{headline}{}
+\setbeamercolor{footline}{fg = white}
+
+\begin{frame}{ちょっとカスタマイズ：ヘッダとプログレスメータ}
+\begin{block}{ヘッダ}
+    スライド上部の \emph{ヘッダ} は，
+    \lstinputlisting[
+      language = tex,
+      linewidth = \textwidth
+    ]{./fig/sample-14.tex}
+    と書いてやると消えます
+    \begin{itemize}
+    \okitem
+      スライドが始まる前に書いておけば\\
+      無駄なスペースができることもないです
+    \end{itemize}
+\end{block}
+
+\begin{block}{プログレスメータ}
+    スライド下部の \emph{プログレスメータ} は，
+    \lstinputlisting[
+      language = tex,
+      linewidth = \textwidth
+    ]{./fig/sample-12.tex}
+    と書いてやると（背景と同じ色になって）消えます
+  \end{block}
+
+\end{frame}
+}
+

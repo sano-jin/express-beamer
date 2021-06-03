@@ -1,0 +1,11 @@
+% Initial graph（初期グラフ）
+list = append([1, 2, 3], [4, 5]).
+
+% Rules（ルール）
+appendCons @@
+R = append([H | T], L)
+  :- R = [H | append(T, L)].
+
+appendNil @@
+R = append([], L)
+  :- R = L.

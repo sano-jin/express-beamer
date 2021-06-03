@@ -1,0 +1,191 @@
+\section[HyperLMNtal Syntax/Semantics]{HyperLMNtal の抽象構文と操作的意味論}
+
+\begin{frame}{}
+  今回紹介するのは膜がなく・全てハイパーリンクな flat HyperLMNtal だが，\\
+  現実装に即した膜あり通常リンクあり版も卒論\footcite{sano}には書いた
+\end{frame}
+
+\begin{frame}{識別子と予約名}
+  \begin{itemize}
+    \item $X$ は（ハイパー）リンク名を表す
+    \item $p$ はアトム名を表す
+      \begin{itemize}
+      \item \fbox{$\bowtie$} (fusion) のみ予約名
+      \end{itemize}  
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{flat HyperLMNtal の抽象構文}
+  \begin{center}
+    \renewcommand{\arraystretch}{1.1}
+    \begin{tabular}{ lrclll } 
+      (Process) & $P$&$::=$& \(\zero\) && Null \\
+      &&$|$& \(p (X_1, \ldots ,X_m)\) & \(m \geq 0\) & Atom \\
+      &&$|$& \((P, P)\) && Molecule \\
+      &&$|$& \Emph{\(\nu X.P\)} && \Emph{Link creation} \\
+      &&$|$& \((P \vdash P)\) && Rule \\
+    \end{tabular}
+  \end{center}
+\end{frame}
+
+\begin{frame}{Free names}
+  The set of the \Emph{free link names} in a process \mfbox{P}
+  is denoted as \mfbox{\mathit{fn}(P)}\\
+  and is defined inductively as following:
+  
+  \[\begin{aligned}
+  \mathit{fn}(\zero)               &= \emptyset \\
+  \mathit{fn}(p(X_1, \ldots ,X_m)) &= \bigcup_{i=1}^m \{X_i\} \\
+  \mathit{fn}((P, Q))              &= \mathit{fn}(P) \cup \mathit{fn}(Q) \\
+  \mathit{fn}(\nu X.P)             &= \mathit{fn}(P) \setminus \{X\} \\
+  \mathit{fn}((P \vdash Q))        &= \emptyset
+  \end{aligned}
+  \]
+
+\end{frame}
+  
+
+\begin{frame}{flat HyperLMNtal の構文条件}
+
+  A rule \mfbox{(P \vdash Q)} must satisfy the following conditions:
+
+  \begin{enumerate}
+  \item Rules must not appear in \mfbox{P}
+  \item \Emph{\(\mathit{fn}(P) \supseteq \mathit{fn}(Q)\)}
+  \end{enumerate}
+
+  \vspace{2em}
+  
+  Intuitively, the latter condition indicates\\
+  that we have to denote a \emph{new} hyperlink in a scope of a \(\nu\) (new) on RHS,\\
+  which we believe follows a common sense.
+    
+\end{frame}
+
+
+\begin{frame}{Link substitution}
+  \footnotesize
+  \mfbox{P[Y/X]} replaces all free occurrences of \mfbox{X} with \mfbox{Y}
+  \begin{itemize}
+  \item
+    If a free occurrence of $X$ occurs in a location where $Y$ would not be free,\\
+    \underline{$\alpha$-conversion may be required}
+  \item    
+    we use \mfbox{=} to denote syntactic equivalence
+  \end{itemize}
+  
+  \begin{center}
+    \begin{tabular}{l}
+      \( \zero[Y/X] \overset{def}{=} \zero \) \vspace{0.5em}\\ 
+      \( p(X_1, \ldots, X_m)[Z/Y] \overset{def}{=} p(X_1[Z/Y], \ldots, X_m[Z/Y]) \)
+      \vspace{0.3em}\\
+      \hspace{11em} where \(
+      X_i[Z/Y] \overset{def}{=}
+      \left\{
+      \begin{array}{ll}
+        Z   & \mbox{if } X_i = Y \\
+        X_i & \mbox{if } X_i \neq Y
+      \end{array}
+      \right.
+      \) \vspace{0.5em}\\ 
+      \((P, Q)[Y/X] \overset{def}{=} (P[Y/X], Q[Y/X])\) \vspace{0.5em}\\
+      \(
+      (\nu X.P)[Z/Y] \overset{def}{=}
+      \left\{
+      \arraycolsep = 0pt
+      \begin{array}{ll}
+        \nu X.P & \mbox{\hspace{1em} if } X = Y \\
+        \nu X.P[Z/Y] & \mbox{\hspace{1em} if } X \neq Y \land X \neq Z \\
+        \nu W.(P[W/X])[Z/Y] & \mbox{\hspace{1em} if }
+        X \neq Y \land X = Z
+        \land W \notin \mathit{fn}(P) \land W \neq Z
+      \end{array}
+      \right.
+      \) \vspace{0.5em}\\
+      \( (P \vdash Q)[Y/X] \overset{def}{=} (P \vdash Q) \) \\
+    \end{tabular}
+  \end{center}
+  
+\end{frame}
+
+
+\begin{frame}{flat HyperLMNtal の操作的意味論｜構造合同規則}
+  \begin{center}
+    \footnotesize
+    \renewcommand{\arraystretch}{1.5}
+    \begin{tabular}{ lrcll } 
+      (E1)  & $(\mathbf{0}, P)$         &$\equiv$&      $P$\\
+      (E2)  & $(P, Q)$                  &$\equiv$&      $(Q, P)$ \\
+      (E3)  & $(P, (Q, R))$             &$\equiv$&      $((P, Q), R)$ \\
+      (E4)  & $P \equiv P'$             &$\Rightarrow$& $(P, Q) \equiv (P', Q)$ \\
+      (E5)  & $P \equiv Q$              &$\Rightarrow$& $\nu X.P \equiv \nu X.Q$ \\
+      (E6)  & $\nu X.(X \bowtie Y, P)$  &$\equiv$&      $\nu X.P[Y / X]$
+      & where \(X \in \mathit{fn}(P) \lor Y \in \mathit{fn}(P)\)\\
+      (E7)  & $\nu X.\nu Y.X \bowtie Y$ &$\equiv$&      $\zero$ \\
+      (E8)  & $\nu X.\zero$             &$\equiv$&      $\zero$\\
+      (E9)  & $\nu X.\nu Y.P$           &$\equiv$&      $\nu Y.\nu X.P$\\
+      (E10) & $\nu X.(P,Q)$             &$\equiv$&      $(\nu X.P,Q)$
+       & where \(X \notin \mathit{fn}(Q)\)\\
+    \end{tabular}
+  \end{center}
+\end{frame}
+
+\begin{frame}{LMNtal の操作的意味論｜遷移規則}
+  \begin{center}
+    \renewcommand{\arraystretch}{1.8}
+    \begin{tabular}{ lc } 
+      (R1) & \(\dfrac{P \longrightarrow P'}{(P, Q) \longrightarrow  (P', Q)} \)
+      \vspace{1em}\\
+      (R2) & \(\dfrac{P \longrightarrow P'}{\nu X.P \longrightarrow  \nu X.P'} \)
+      \vspace{1em} \\
+      (R3) & \(\dfrac{Q \equiv P \hspace{16pt} P \longrightarrow P' \hspace{16pt} P' \equiv Q'}{Q \longrightarrow Q'} \)
+      \vspace{0.5em} \\
+      (R4) & \( (P, (P \vdash Q)) \longrightarrow (Q, (P \vdash Q)) \) \\
+    \end{tabular}
+  \end{center}
+\end{frame}
+
+
+\begin{frame}{例題｜Non-injective matching $\angled{1/2}$}
+  Can the rule 
+  \[
+  (p(X, Y) \vdash q(X, Y))
+  \]
+  rewrite an atom \mfbox{p(X, X)} ?
+
+  More precisely, can the process 
+  \[
+  (p(X, X), (p(X, Y) \vdash q(X, Y)))
+  \]
+  reduces to something?
+
+  The rule cannot be $\alpha$-converted to the form
+  \[ (p(X, X) \vdash \dots) \]
+
+  \dots
+\end{frame}
+  
+\begin{frame}{例題｜Non-injective matching $\angled{2/2}$}
+  However, the atom \mfbox{p(X, X)} can be converted to\\
+  \mfbox{\nu Y.(Y \bowtie X, p(X, Y))} using (E7) and Lemma 1.
+
+  Therefore, it can be rewritten as
+  \begin{align*}
+    & (p(X, X), (p(X, Y) \vdash q(X, Y))) \\
+    & \equivby{Lemma 1}
+    \nu Y.(p(X, X), (p(X, Y) \vdash q(X, Y)))\\
+    & \equivby{E7}
+    \nu Y.(Y \bowtie X, (p(X, Y), (p(X, Y) \vdash q(X, Y))))\\
+    & \longrightarrow
+    \nu Y.(Y \bowtie X, (q(X, Y), (p(X, Y) \vdash q(X, Y))))\\
+    & \equivby{E7}
+    \nu Y.(q(X, X), (p(X, Y) \vdash q(X, Y)))\\
+    & \equivby{Lemma 1}
+    (q(X, X), (p(X, Y) \vdash q(X, Y)))
+  \end{align*}
+
+  As the above, we can match non-injective free links\\
+  using congruence rule on the link fusion. 
+\end{frame}
+
+

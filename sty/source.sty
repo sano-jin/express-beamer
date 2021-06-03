@@ -1,0 +1,37 @@
+% This is for LMNtal code syntax high-lighting
+
+\lstset{
+  backgroundcolor   = \color{black!5!backgroundcolor},
+  basicstyle        = {\linespread{5.1}\ttfamily\lst@ifdisplaystyle\scriptsize\else\small\fi\color{textcolor}},
+  keywordstyle      = [1]{\textcolor{maincolor}},
+  keywordstyle      = [2]{\textcolor{maincolor}},
+  commentstyle      = {\scriptsize\textcolor{textcolor!80}}, % \itshape
+  stringstyle       = {\itshape\textcolor{maincolor}},
+  numbers           = none,   % 行番号は左
+  firstnumber       = 1,      
+  stepnumber        = 5,      % 5行ずつ行番号をふる
+  numberstyle       = {\sffamily\scriptsize\textcolor{black!30}}, %行番号の書式
+  xleftmargin       = 0.5cm,    % 左余白
+  xrightmargin      = 0.2cm,    % 右余白
+  frame             = single, 
+  breaklines        = true,   % 長くなったら途中で改行
+  captionpos        = t,      % タイトルの位置
+  breakindent       = 10pt,   % 改行されたときの送り幅
+  showstringspaces  = false,  % 文字列中の半角スペースを表示させない
+  lineskip          = -0.5pt, % 通常の文章より行送りを狭くする
+  belowcaptionskip  = 1em,
+  belowskip         = 0.5em,
+  abovecaptionskip  = 1em,
+  aboveskip         = 1.5em,
+  breakatwhitespace = false,  
+  keepspaces        = true,                 
+  numbersep         = 8pt,         
+  showspaces        = false,                
+  showtabs          = false,                  
+  tabsize           = 2,
+  framesep          = 0.2cm,
+  framerule         = 0pt,
+  rulecolor         = \color{maincolor!30},
+  linewidth         = \textwidth
+}
+

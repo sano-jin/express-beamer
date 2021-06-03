@@ -1,0 +1,53 @@
+\mode<presentation>
+
+\defbeamertemplate*{title page}{crystalline}[1][]{
+   \nointerlineskip 
+  \begin{beamercolorbox}[wd=\the\paperwidth, ht=\the\paperheight, sep = 0pt, dp = 0pt, #1]{
+      title,
+      subtitle,
+      date,
+      institute,
+      author,
+      titlegraphic
+    }
+    \begin{tikzpicture}
+      \useasboundingbox (0,0) rectangle(\the\paperwidth, \the\paperheight);
+
+      \fill [
+        color = maincolor,
+      ] (0, 0.45\paperheight) rectangle(\the\paperwidth, 1.1\paperheight);
+
+      \node[above right] at (1.15cm, 0.5em + 0.45\paperheight){%
+        \begin{minipage}{\the\paperwidth - 2cm}
+          {\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle\par}{%
+          %\vspace{1.5em}{
+            \setlength{\parskip}{0.7em}%
+            \usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+        \end{minipage}
+      };
+
+
+      \node[above right] at (1.15cm, 3em){%
+        \begin{minipage}{\the\paperwidth - 2cm}
+          \begin{tabular}{@{}p{0.7\textwidth}@{}p{0.2\textwidth}@{}}
+            \begin{minipage}{0.7\paperwidth}
+              {\usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate\par}
+              {\usebeamerfont{institute}\usebeamercolor[fg]{institute}\insertinstitute\par}
+              \vspace{0.3em}
+              {\usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor\par}
+            \end{minipage}
+            & \begin{minipage}{0.2\paperwidth}
+                \hfill\inserttitlegraphic
+              \end{minipage}
+          \end{tabular}
+
+        \end{minipage}
+      };
+
+      
+    \end{tikzpicture}    
+  \end{beamercolorbox}
+}
+
+\mode
+<all>

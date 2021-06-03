@@ -1,0 +1,154 @@
+\mode<presentation>
+
+\makeatletter
+\def\progressbar@progressbar{}  % the progress bar
+\newcount\progressbar@tmpcounta % auxiliary counter
+\newcount\progressbar@tmpcountb % auxiliary counter
+\newdimen\progressbar@pbht      %progressbar height
+\newdimen\progressbar@pbwd      %progressbar width
+\newdimen\progressbar@tmpdim    % auxiliary dimension
+
+\progressbar@pbwd = \paperwidth
+\progressbar@pbht = 1.5pt
+
+% the progress bar
+\def\progressbar@progressbar{%
+  \progressbar@tmpcounta=\insertframenumber
+  \progressbar@tmpcountb=\inserttotalframenumber
+  \progressbar@tmpdim=\progressbar@pbwd
+  \divide\progressbar@tmpdim by 100
+  \multiply\progressbar@tmpdim by \progressbar@tmpcounta
+  \divide\progressbar@tmpdim by \progressbar@tmpcountb
+  \multiply\progressbar@tmpdim by 100
+
+\begin{tikzpicture}
+    \fill[color = backgroundcolor]
+    (0pt, 0pt) rectangle ++ (\progressbar@pbwd, \progressbar@pbht);
+
+    \usebeamercolor{footline}
+    \fill [color = footline.fg] 
+    (0pt, 0pt) rectangle ++ (\progressbar@tmpdim, \progressbar@pbht);
+  \end{tikzpicture}%
+}
+
+\setbeamertemplate{headline}{%
+   \ifnum \theframenumber=1
+   % This is the title frame, do nothing
+   \else
+   \leavevmode%
+   \hbox{%
+     \begin{beamercolorbox}[wd = \paperwidth, ht = 3.4ex, dp = 1.5ex]{palette}%
+       \insertsectionnavigationhorizontal{\paperwidth}{}{\hskip0pt plus1filll}
+     \end{beamercolorbox}%
+   }
+   \fi
+}
+
+\usetikzlibrary{shapes}
+
+\setbeamertemplate{section in head/foot}{%
+  \tikz[baseline=2.5pt]{ % (s.base)    
+    \node(s)[above, text = maincolor]{\insertsectionhead}; 
+
+    \fill [draw    = backgroundcolor,
+      line width   = 1pt,
+      left color   = backgroundcolor,
+      right color  = black!5!backgroundcolor,
+    ] ([xshift=-8pt, yshift=2pt]s.north west)
+    rectangle ([xshift=-4pt, yshift=-3pt]s.south west);
+
+    \fill [draw    = backgroundcolor,
+      line width   = 1pt,
+      left color   = black!5!backgroundcolor,
+      right color  = backgroundcolor,
+    ] ([xshift=4pt, yshift=2pt]s.north east)
+    rectangle ([yshift=-3pt, xshift=8pt]s.south east);
+
+    \draw[maincolor, line width = 2pt]
+    ([yshift=-1pt, xshift=-4.5pt]s.south west)--([yshift=-1pt, xshift=4.5pt]s.south east);
+  }
+}
+
+\setbeamertemplate{section in head/foot shaded}{%
+  \tikz[baseline=(s.base) + 1pt]{
+    \node(s)[text = textcolor!60!backgroundcolor]{\insertsectionhead};
+  }
+}
+
+
+\setbeamertemplate{footline}{
+   \ifnum \theframenumber=1
+   % This is the title frame, do nothing
+   \else
+   \begin{beamercolorbox}[wd=\paperwidth, ht=1cm]{page number in head/foot} 
+     \begin{tikzpicture}
+       \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+
+       \progressbar@progressbar%
+       
+       \node[above left, font=\large] at (\the\paperwidth - 1em, 0.1cm){
+         \usebeamercolor[fg]{page number in head/foot}%
+         \usebeamerfont{page number in head/foot}%
+         \insertpagenumber%
+         \footnotesize/\inserttotalframenumber
+       };
+       
+     \end{tikzpicture}
+   \end{beamercolorbox}
+   \fi
+}
+
+\makeatother
+
+\setbeamertemplate{background}{
+    \begin{tikzpicture}
+      \useasboundingbox (0, 0) rectangle(\the\paperwidth,\the\paperheight);  
+      \fill[backgroundcolor, opacity = 1]
+      (0, 0) rectangle(\the\paperwidth,\the\paperheight + 5cm);
+    \end{tikzpicture}
+}
+
+% Frame title
+\defbeamertemplate*{frametitle}{crystalline}[1][]{%
+  \begin{beamercolorbox}[wd=\paperwidth, ht=1cm]{frametitle} 
+  \begin{tikzpicture}
+    \useasboundingbox (0, -1pt) rectangle(\the\paperwidth,\the\paperheight);
+
+    \fill [draw,
+      line width = 1pt,
+      top color = black!10!backgroundcolor, % !30!white,
+      middle color = backgroundcolor,
+      bottom color = backgroundcolor,
+    ] (0, -4pt) rectangle(\the\paperwidth, 0.5pt);
+    
+    \fill [color = maincolor] (0, 0pt) rectangle(\the\paperwidth, 1cm);
+    
+    \usebeamercolor{footline}
+    \node[right] at (0.3, 0.5cm){
+      \color{frametitle.fg}
+      \insertframetitle
+    };
+
+    
+  \end{tikzpicture}
+  \end{beamercolorbox}
+}
+
+
+\setlength{\footnotesep}{8pt}   % space between footnotes
+\setlength{\skip\footins}{5pt}  % space between body text and footnoes
+
+\setbeamertemplate{footnote}{%
+  \raggedright
+      {
+        \linespread{0.0}
+        \usebeamercolor[fg]{footnote}%
+        \usebeamerfont{footnote}%
+        \insertfootnotetext
+      }
+}
+
+\setbeamertemplate{navigation symbols}{}
+
+
+\mode<all>
