@@ -18,12 +18,12 @@
       ] (0, 0.45\paperheight) rectangle(\the\paperwidth, 1.1\paperheight);
 
       \node[above right] at (1.15cm, 0.5em + 0.45\paperheight){%
-        \begin{minipage}{\the\paperwidth - 2cm}
-          {\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle\par}{%
-          %\vspace{1.5em}{
-            \setlength{\parskip}{0.7em}%
+        \begin{minipage}{\the\paperwidth - 2cm}{%
+            \usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle\par}{%
+            \setlength{\parskip}{1em}%
             \usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
-        \end{minipage}
+          \vspace{0.5em}%
+        \end{minipage}%
       };
 
 
