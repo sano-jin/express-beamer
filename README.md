@@ -49,7 +49,7 @@ Feel free to contact me at [twitter@sano65747676](https://twitter.com/sano657476
 ## Todos
 
 - [ ] Translate Japanese in the slide to English.
-- [ ] Provide the way to merge files to one `sty` file.
+- [ ] Provide the way to merge files into one `sty` file.
 
 
 ## Directory Structure
