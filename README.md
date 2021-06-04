@@ -2,9 +2,7 @@
 
 [/slide.pdf](/slide.pdf) is the output pdf.
 
-![front matter](/doc/slide/slide-01.png)
-![table of contents](/doc/slide/slide-03.png)
-![an ordinary page](/doc/slide/slide-04.png)
+![slide image](/doc/slide-4up.png)
 
 Yet another Beamer theme !
 Please tell me if you have any request, advice, etc...!!!
