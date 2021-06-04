@@ -12,8 +12,10 @@ Please tell me if you have any request, advice, etc...!!!
 - latexmk
 
 ### Installation
-1. `git clone https://github.com/sano-jin/express-beamer.git`
-2. `make`
+```bash
+$ git clone https://github.com/sano-jin/express-beamer.git`
+$ make
+```
 
 ### Usage
 The following code shows a minimal example of a Beamer presentation.
@@ -39,6 +41,16 @@ Take a look at [/tex/slide.tex](/tex/slide.tex) and edit this.
 The output [/slide.pdf](/slide.pdf) is quite self explanatory (or at least, designed to be).
 Please take a look at it!
 
+## Contact
+
+Feel free to contact me at [twitter@sano65747676](https://twitter.com/sano65747676).
+
+## Todos
+
+- [ ] Translate Japanese in the slide to English.
+- [ ] Provide the way to merge files to one `sty` file.
+
+
 ## Directory Structure
 ```
 + tex/             # A directory for "tex" files.
@@ -49,9 +61,8 @@ Please take a look at it!
 |  + logo.png      # Your Logo! Please replace it with your own!
 |
 + sty/             # A directory for "sty"ling files.
-|  |               # I hope you need not to edit this...
 |  |
-|  + slide.sty     # The main file for styling.
+|  + style.sty     # The main file for styling.
 |  + source.sty    # For syntax highlighting LMNtal source codes.
 |  + japanese.sty  # For some Japanese settings.
 |  + jlisting.sty  # For source codes using Japanese.
