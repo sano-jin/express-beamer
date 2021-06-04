@@ -1,11 +1,11 @@
 # Express-Beamer
 
-[/slide.pdf](/slide.pdf) is the output pdf.
-
-![slide image](/doc/slide-4up.png)
-
 Yet another Beamer theme !
 Please tell me if you have any request, advice, etc...!!!
+
+[/slide.pdf](/slide.pdf) is the output pdf.
+![slide image](/doc/slide-4up.png)
+
 
 ## Getting started
 ### Prerequisites
