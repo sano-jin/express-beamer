@@ -13,8 +13,8 @@ Please tell me if you have any request, advice, etc...!!!
 
 ### Installation
 ```bash
-$ git clone https://github.com/sano-jin/express-beamer.git`
-$ make
+git clone https://github.com/sano-jin/express-beamer.git`
+make
 ```
 
 ### Usage
