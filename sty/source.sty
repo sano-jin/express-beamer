@@ -1,16 +1,16 @@
 % This is for LMNtal code syntax high-lighting
 
 \lstset{
-  backgroundcolor   = \color{black!5!backgroundcolor},
+  backgroundcolor   = \color{textcolor!5!backgroundcolor},
   basicstyle        = {\linespread{5.1}\ttfamily\lst@ifdisplaystyle\scriptsize\else\small\fi\color{textcolor}},
   keywordstyle      = [1]{\textcolor{maincolor}},
   keywordstyle      = [2]{\textcolor{maincolor}},
-  commentstyle      = {\scriptsize\textcolor{textcolor!80}}, % \itshape
+  commentstyle      = {\scriptsize\textcolor{textcolor!80!backgroundcolor}}, % \itshape
   stringstyle       = {\itshape\textcolor{maincolor}},
   numbers           = none,   % 行番号は左
   firstnumber       = 1,      
   stepnumber        = 5,      % 5行ずつ行番号をふる
-  numberstyle       = {\sffamily\scriptsize\textcolor{black!30}}, %行番号の書式
+  numberstyle       = {\sffamily\scriptsize\textcolor{textcolor!50!backgroundcolor}}, %行番号の書式
   xleftmargin       = 0.5cm,    % 左余白
   xrightmargin      = 0.2cm,    % 右余白
   frame             = single, 
@@ -31,7 +31,7 @@
   tabsize           = 2,
   framesep          = 0.2cm,
   framerule         = 0pt,
-  rulecolor         = \color{maincolor!30},
+  rulecolor         = \color{maincolor!30!backgroundcolor},
   linewidth         = \textwidth
 }
 
