@@ -19,6 +19,7 @@ make
 ```
 
 ### Usage
+
 The following code shows a minimal example of a Beamer presentation.
 
 ```tex
@@ -41,6 +42,23 @@ Take a look at [/tex/slide.tex](/tex/slide.tex) and edit this.
 
 The output [/slide.pdf](/slide.pdf) is quite self explanatory (or at least, designed to be).
 Please take a look at it!
+
+### Customization
+
+Customization is fairly easy.
+
+for example, if you want to change color schemes, you can just overwrite the default color theme like following:
+
+```tex
+\definecolor{backgroundcolor}{RGB}{50, 50, 50}
+\definecolor{textcolor}{RGB}{235, 235, 235}
+\definecolor{maincolor}{RGB}{255, 241, 118}
+\definecolor{accentcolor}{RGB}{70, 164, 199}
+```
+
+Then you can get the following slide. Beautiful!
+
+![slide image](/doc/dark-theme-slide-4up.png)
 
 ## Contact
 
