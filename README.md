@@ -47,7 +47,7 @@ Please take a look at it!
 
 Customization is fairly easy.
 
-for example, if you want to change color schemes, you can just overwrite the default color theme like following:
+for example, if you want to change the color schemes, you can just overwrite the default color theme like the following:
 
 ```tex
 \definecolor{backgroundcolor}{RGB}{50, 50, 50}
