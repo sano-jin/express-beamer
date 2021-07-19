@@ -1,101 +1,184 @@
-# Express-Beamer
+<!-- PROJECT SHIELDS -->
+<!--
+*** I'm using markdown "reference style" links for readability.
+*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
+*** See the bottom of this document for the declaration of the reference variables
+*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
+*** https://www.markdownguide.org/basic-syntax/#reference-style-links
+-->
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
+
+
+
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <a href="https://github.com/sano-jin/express-beamer">
+    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  </a>
+
+  <h3 align="center">Express</h3>
+
+  <p align="center">
+    A modern LaTeX Beamer theme with minimal yet fancy color scheme and twists of material design
+    <br />
+    <a href="https://github.com/sano-jin/express-beamer"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/sano-jin/express-beamer/slide.pdf">View Demo</a>
+    ·
+    <a href="https://github.com/sano-jin/express-beamer/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/sano-jin/express-beamer/issues">Request Feature</a>
+  </p>
+</p>
+
+
+
+<!-- TABLE OF CONTENTS -->
+<details open="open">
+  <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgements">Acknowledgements</a></li>
+  </ol>
+</details>
+
+
+
+<!-- ABOUT THE PROJECT -->
+## About The Project
+
+
+[![Product Name Screen Shot][product-screenshot]](/doc/slide-4up.png)
+
 
 Yet another Beamer theme !
 Please tell me if you have any request, advice, etc...!!!
 
-[/slide.pdf](/slide.pdf) is the output pdf.
 
-![slide image](/doc/slide-4up.png)
+### Built With
+
+* [latexmk](https://ctan.org/pkg/latexmk)
+* [XeTeX](https://tug.org/xetex/)
 
 
-## Getting started
+
+<!-- GETTING STARTED -->
+## Getting Started
+
+To get a local copy up and running follow these simple steps.
+
 ### Prerequisites
-- latexmk
+
+This is an example of how to list things you need to use the software and how to install them.
+* npm
+  ```sh
+  npm install npm@latest -g
+  ```
 
 ### Installation
-```bash
-git clone https://github.com/sano-jin/express-beamer.git`
-make
-```
 
-### Usage
+1. Clone the repo
+   ```sh
+   git clone https://github.com/sano-jin/express-beamer.git
+   ```
+2. Make
+   ```sh
+   make
+   ```
 
-The following code shows a minimal example of a Beamer presentation.
 
-```tex
-\documentclass[xetex, unicode, 10pt]{beamer}
-\usepackage{sty/style} 
-\title{A minimal example}
-\date{\today}
-\author{Author}
-\institute{Institute}
-\begin{document}
-  \maketitle
-  \section{First Section}
-  \begin{frame}{First Frame}
-    Hello, world!
-  \end{frame}
-\end{document}
-```
 
-Take a look at [/tex/slide.tex](/tex/slide.tex) and edit this.
+<!-- USAGE EXAMPLES -->
+## Usage
 
-The output [/slide.pdf](/slide.pdf) is quite self explanatory (or at least, designed to be).
-Please take a look at it!
+Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
-### Customization
+_For more examples, please refer to the [Documentation](https://example.com)_
 
-Customization is fairly easy.
 
-for example, if you want to change the color schemes, you can just overwrite the default color theme like the following:
 
-```tex
-\definecolor{backgroundcolor}{RGB}{50, 50, 50}
-\definecolor{textcolor}{RGB}{235, 235, 235}
-\definecolor{maincolor}{RGB}{255, 241, 118}
-\definecolor{accentcolor}{RGB}{70, 164, 199}
-```
+<!-- ROADMAP -->
+## Roadmap
 
-Then you can get the following slide. Beautiful!
+See the [open issues](https://github.com/sano-jin/express-beamer/issues) for a list of proposed features (and known issues).
 
-![slide image](/doc/dark-theme-slide-4up.png)
 
+
+<!-- CONTRIBUTING -->
+## Contributing
+
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+
+
+<!-- LICENSE -->
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+
+
+<!-- CONTACT -->
 ## Contact
 
-Feel free to contact me at [twitter@sano65747676](https://twitter.com/sano65747676).
+Your Name - [@sano65747676](https://twitter.com/sano65747676) - email
 
-## Todos
-
-- [ ] Translate Japanese in the slide to English.
-- [ ] Provide the way to merge files into one `sty` file.
+Project Link: [https://github.com/sano-jin/express-beamer](https://github.com/sano-jin/express-beamer)
 
 
-## Directory Structure
-```
-+ tex/             # A directory for "tex" files.
-|  + slide.tex     # What you need to edit.
-|
-+ fig/             # A directory for some figures and source codes.
-|  + sample.tex    # A sample source code.
-|  + logo.png      # Your Logo! Please replace it with your own!
-|
-+ sty/             # A directory for "sty"ling files.
-|  |
-|  + style.sty     # The main file for styling.
-|  + source.sty    # For syntax highlighting LMNtal source codes.
-|  + japanese.sty  # For some Japanese settings.
-|  + jlisting.sty  # For source codes using Japanese.
-|  + citation      # For the custom "footcite".
-|
-+ theme/           # Adirectory for our custom theme.
-|  + ...           # Some styling files.
-|
-+ ref.bib          # For citing the references.
-+ Makefile
-+ latexmkrc
-+ slide.pdf        # Output slide!
-```
+
+<!-- ACKNOWLEDGEMENTS -->
+## Acknowledgements
+
+* []()
+* []()
+* []()
 
 
 
 
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/sano-jin/repo.svg?style=for-the-badge
+[contributors-url]: https://github.com/sano-jin/repo/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/sano-jin/repo.svg?style=for-the-badge
+[forks-url]: https://github.com/sano-jin/repo/network/members
+[stars-shield]: https://img.shields.io/github/stars/sano-jin/repo.svg?style=for-the-badge
+[stars-url]: https://github.com/sano-jin/repo/stargazers
+[issues-shield]: https://img.shields.io/github/issues/sano-jin/repo.svg?style=for-the-badge
+[issues-url]: https://github.com/sano-jin/repo/issues
+[license-shield]: https://img.shields.io/github/license/sano-jin/repo.svg?style=for-the-badge
+[license-url]: https://github.com/sano-jin/repo/blob/master/LICENSE.txt
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://linkedin.com/in/sano-jin
