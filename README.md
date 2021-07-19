@@ -72,7 +72,7 @@
 ## About The Project
 
 
-[![Product Name Screen Shot][https://github.com/sano-jin/express-beamer/blob/main/doc/slide-4up.png]](https://github.com/sano-jin/express-beamer)
+[![Product Name Screen Shot](https://github.com/sano-jin/express-beamer/blob/main/doc/slide-4up.png)](https://github.com/sano-jin/express-beamer)
 
 
 Yet another Beamer theme !
