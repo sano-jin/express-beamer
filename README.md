@@ -32,7 +32,7 @@
     <br />
     <a href="https://github.com/sano-jin/express-beamer/slide.pdf">View Demo</a>
     ·
-    <a href="https://github.com/sano-jin/express-beamer/issues">Report Bug</a>
+    <a href="https://github.com/sano-jin/express-beamer/issues">Express-Beamerrt Bug</a>
     ·
     <a href="https://github.com/sano-jin/express-beamer/issues">Request Feature</a>
   </p>
@@ -101,7 +101,7 @@ This is an example of how to list things you need to use the software and how to
 
 ### Installation
 
-1. Clone the repo
+1. Clone the express-beamer
    ```sh
    git clone https://github.com/sano-jin/express-beamer.git
    ```
@@ -170,15 +170,15 @@ Project Link: [https://github.com/sano-jin/express-beamer](https://github.com/sa
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/sano-jin/repo.svg?style=for-the-badge
-[contributors-url]: https://github.com/sano-jin/repo/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/sano-jin/repo.svg?style=for-the-badge
-[forks-url]: https://github.com/sano-jin/repo/network/members
-[stars-shield]: https://img.shields.io/github/stars/sano-jin/repo.svg?style=for-the-badge
-[stars-url]: https://github.com/sano-jin/repo/stargazers
-[issues-shield]: https://img.shields.io/github/issues/sano-jin/repo.svg?style=for-the-badge
-[issues-url]: https://github.com/sano-jin/repo/issues
-[license-shield]: https://img.shields.io/github/license/sano-jin/repo.svg?style=for-the-badge
-[license-url]: https://github.com/sano-jin/repo/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/sano-jin/express-beamer.svg?style=for-the-badge
+[contributors-url]: https://github.com/sano-jin/express-beamer/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/sano-jin/express-beamer.svg?style=for-the-badge
+[forks-url]: https://github.com/sano-jin/express-beamer/network/members
+[stars-shield]: https://img.shields.io/github/stars/sano-jin/express-beamer.svg?style=for-the-badge
+[stars-url]: https://github.com/sano-jin/express-beamer/stargazers
+[issues-shield]: https://img.shields.io/github/issues/sano-jin/express-beamer.svg?style=for-the-badge
+[issues-url]: https://github.com/sano-jin/express-beamer/issues
+[license-shield]: https://img.shields.io/github/license/sano-jin/express-beamer.svg?style=for-the-badge
+[license-url]: https://github.com/sano-jin/express-beamer/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/sano-jin
