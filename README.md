@@ -30,7 +30,7 @@
     <a href="https://github.com/sano-jin/express-beamer"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/sano-jin/express-beamer/slide.pdf">View Demo</a>
+    <a href="https://github.com/sano-jin/express-beamer/blob/main/slide.pdf">View Demo</a>
     ·
     <a href="https://github.com/sano-jin/express-beamer/issues">Express-Beamerrt Bug</a>
     ·
@@ -72,7 +72,7 @@
 ## About The Project
 
 
-[![Product Name Screen Shot][product-screenshot]](/doc/slide-4up.png)
+[![Product Name Screen Shot][product-screenshot]](https://github.com/sano-jin/express-beamer/blob/main/doc/slide-4up.png)
 
 
 Yet another Beamer theme !
