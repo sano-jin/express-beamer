@@ -1,0 +1,32 @@
+\documentclass[xetex, unicode, 10pt]{beamer}
+\usepackage{sty/zh-cn/style} 
+
+\title{
+  自制 Beamer 主题：\\
+  研讨会幻灯片设计 
+}
+\subtitle{A Modern Beamer Theme}
+\author{佐野\ 仁}
+\institute{%
+  早稻田大学\ 基干理工学部\\
+  情报理工学科\ 4年\ 上田研究室\\
+  xxxxxx-x
+}
+\date{\today}
+\titlegraphic{\includegraphics[width = 2cm]{fig/logo}} 
+
+\begin{document}
+
+\maketitle
+
+\include{tex/zh-cn/01-abstraction}
+\include{tex/zh-cn/02-introduction}
+\include{tex/zh-cn/03-samples}
+\include{tex/zh-cn/99-conclusion}
+
+\begin{frame}[allowframebreaks, noframenumbering]{参考文献}
+  \printbibheading[heading = none]
+  \printbibliography
+\end{frame}
+
+\end{document}

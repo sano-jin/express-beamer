@@ -1,0 +1,297 @@
+% A file for general settings
+
+% These packages are needed for the custom theme "crystalline".
+\usepackage{xcolor}
+\usepackage{tikz}
+
+\usetikzlibrary{positioning}
+\usepackage{calc}
+
+\usepackage{listings}
+
+% LMNtal syntax highlighter feat our legendary Nakata (^_^)v!
+\usepackage{sty/source}
+
+% This is for Japanese (You can comment out if you do not use Japanese).
+\usepackage{sty/zh-cn/chinese}
+
+% We should not load the "graphicx" and the "color" package if we are using the loading
+% above "sty/japanese.sty" since it is loading "jlisting", which loads "graphicx"
+% and "color".
+% However, you need to load this (if you want to insert images) when you omit the
+% above "sty/japanese.sty".
+%
+% \usepackage[dvipdfmx]{graphicx}
+
+
+
+\usepackage[
+  sorting     = none,
+  backend     = biber,
+  maxbibnames = 2,
+  doi         = false,
+  isbn        = false,
+  url         = false,
+  eprint      = false,
+]{biblatex}
+
+
+% The references should be written in the "ref.bib".
+\addbibresource{ref.bib} 
+
+% You need this to read our theme from the same directory.
+\makeatletter
+  \def\beamer@calltheme#1#2#3{%
+    \def\beamer@themelist{#2}
+    \@for\beamer@themename:=\beamer@themelist\do
+    {\usepackage[{#1}]{\beamer@themelocation/#3\beamer@themename}}}
+  \def\usefolder#1{
+    \def\beamer@themelocation{#1}
+  }
+  \def\beamer@themelocation{}
+
+% We are using the theme "crystalline" (my own theme) from the "theme" directory.
+\usefolder{theme}
+
+% Here is the theme "crystalline".
+% We have defined the "maincolor" and the "accentcolor" here.
+% If you like, it maybe a good habit only to use these colors
+% to create a sense of unity.
+\usetheme{express} 
+
+% \definecolor{maincolor}{RGB}{0, 170, 210}
+% \definecolor{accentcolor}{RGB}{190, 170, 80}
+
+\renewcommand{\fbox}[1]{\fcolorbox{maincolor!30}{maincolor!15!backgroundcolor}{#1}}
+
+% Add padding to the fbox.
+\setlength{\fboxsep}{0.5em}
+% \setlength{\fboxrule}{0.8pt}%
+\setlength{\fboxrule}{0pt}%
+
+% This is a line which divides the body and the footnotes of the slide.
+\renewcommand\footnoterule{%
+%   \vskip 2mm%
+  \textcolor{textcolor!40!backgroundcolor}{\rule{0.7\paperwidth}{0.2pt}}%
+  \vskip 1mm%
+}
+
+% Some commands for emphasis.
+
+% normal emphasis
+\renewcommand{\emph}[1]{{\textbf{#1}}}
+% strong emphasis
+\newcommand{\Emph}[1]{\textbf{\color{maincolor} #1}}
+% very strong emphasis
+\newcommand{\EMPH}[1]{\textbf{\color{accentcolor} #1}} 
+
+% Some custom bullets of the "itemize".
+\newcommand{\okitem}{\item[\okmark]} % OK!, "v"
+\newcommand{\ngitem}{\item[\textcolor{accentcolor}{\ngmark}\hspace{0.1em}]} % NG, "x"
+\newcommand{\thusitem}{\item[\thusmark]} % Thus, "=>"
+\newcommand{\butitem}{\item[\textcolor{accentcolor}{\otherwisemark}\hspace{-0.1em}]} % But, "<->"
+\newcommand{\egitem}{\item[E.g.]} % For example, "E.g."
+
+\usepackage[skins, most]{tcolorbox}
+
+\DeclareCiteCommand{\supercite}[\mkbibsuperscript]
+  {\iffieldundef{prenote}
+     {}
+     {\BibliographyWarning{Ignoring prenote argument}}%
+   \iffieldundef{postnote}
+     {}
+     {\BibliographyWarning{Ignoring postnote argument}}}
+  {\usebibmacro{citeindex}%
+   \bibopenbracket\usebibmacro{cite}\bibclosebracket}
+  {\supercitedelim}
+  {}
+
+% \let\cite=\supercite
+
+% This is for the custom "footcite".
+% (we can have a more detailed info in the footnote when we cite in the slide).
+% Read this after reading "biblatex".
+
+\usepackage{sty/citation}
+
+
+
+\newtcolorbox{mybox}[1]{
+  enhanced,
+  frame hidden,
+  fonttitle     = \bfseries,
+  colback       = textcolor!10!backgroundcolor,
+  colbacktitle  = maincolor,
+  coltitle      = backgroundcolor,
+  coltext       = textcolor,
+  before skip   = 5mm,
+  top           = 1mm,
+  bottom        = 2.5mm,
+  toptitle      = 0.5mm,
+  bottomtitle   = 0.8mm,
+  arc           = 1mm,
+  attach boxed title to top left =
+  {xshift=1.5mm, yshift*=-\tcboxedtitleheight/2},
+  boxed title style = {
+    colframe = maincolor,
+    top      = 0.5mm,
+    bottom   = 0.5mm,
+    left     = 2mm,
+    right    = 2mm,
+    arc      = 1mm
+  },
+  boxrule  = 0.2pt,
+  title = {#1},
+}
+
+
+\newtcolorbox{myframe}[1][]{
+  enhanced,
+  frame hidden,
+  colframe      = maincolor!30!backgroundcolor,
+  colback       = textcolor!10!backgroundcolor,
+  colbacktitle  = maincolor,
+  coltitle      = backgroundcolor,
+  coltext       = textcolor,
+  before skip   = 5mm,
+  top           = 2.5mm,
+  bottom        = 2.5mm,
+  toptitle      = 0.5mm,
+  bottomtitle   = 0.8mm,
+  arc           = 1mm,
+  #1
+}
+
+
+\usetikzlibrary{shapes}
+\usetikzlibrary {fadings}
+
+\newcommand*{\okmark}{\tikz[baseline=(char.base)]{\node(char)[]{};
+    \draw [line width = 0.9pt, color = maincolor]
+    (0em, 0.25em) --++ (0.25em, -0.25em) --++ (0.55em, 0.55em); 
+  }
+}
+
+\newcommand*{\thusmark}{\tikz[baseline=(char.base)]{\node(char)[]{};
+    \draw [line width = 0.9pt, color = maincolor]
+    (0em, 0.35em) --++ (0.8em, 0em);
+    \draw [line width = 0.9pt, color = maincolor]
+    (0.45em, 0.0em) --++ (0.35em, 0.35em) --++ (-0.35em, 0.35em); 
+  }
+}
+
+\newcommand*{\filledcircle}{\tikz[baseline=(char.base)]{\node(char)[]{};
+    \fill [maincolor!80] (0em, 0.35em) circle (0.4em); 
+  }
+}
+
+\newcommand*{\ocircle}{\tikz[baseline=(char.base)]{\node(char)[]{};
+    \draw [line width = 0.7pt, color = maincolor!80]
+    (0em, 0.35em) circle (0.4em); 
+  }
+}
+
+\newcommand*{\ngmark}{\tikz[baseline=(char.base)]{\node(char)[]{};
+    \draw [line width = 0.9pt, color = accentcolor!70]
+    (0em, 0.6em) --++ (0.6em, -0.6em);
+    \draw [line width = 0.9pt, color = accentcolor!70]
+    (0em, 0.0em) --++ (0.6em, 0.6em); 
+  }
+}
+
+\newcommand*{\otherwisemark}{\tikz[baseline=(char.base)]{\node(char)[]{};
+    \draw [line width = 0.9pt, color = accentcolor!70]
+    (0em, 0.3em) --++ (1.0em, 0em);
+    \draw [line width = 0.9pt, color = accentcolor!70]
+    (0.70em, 0.0em) --++ (0.30em, 0.30em) --++ (-0.30em, 0.30em); 
+    \draw [line width = 0.9pt, color = accentcolor!70]
+    (0.30em, 0.0em) --++ (-0.30em, 0.30em) --++ (0.30em, 0.30em); 
+  }
+}
+
+\newcommand*\circled[1]{
+  \scalebox{0.70}{\raisebox{0.15em}{\tikz[baseline=(char.base)]{
+        \node(char)[shape = circle,
+          draw = none,
+          inner sep = 0.4em,
+          color = backgroundcolor,
+          fill = maincolor
+        ]{#1};
+    }}
+  }
+}
+
+\newcommand*\ocircled[1]{
+  \scalebox{0.65}{\raisebox{0.15em}{\tikz[baseline=(char.base)]{
+        \node(char)[shape = circle,%
+          draw,%
+          inner sep  = 0.4em,%
+          color      = maincolor,%
+          draw       = maincolor,%
+          line width = 0.6pt%
+        ]{#1};}}}
+}
+
+\setbeamertemplate{enumerate item}{\protect{\circled{\arabic{enumi}}}\hspace{-0.4em}}
+\setbeamertemplate{enumerate subitem}{\protect{\ocircled{\arabic{enumii}}}}% \hspace{-0.5em}}
+\setbeamertemplate{itemize item}{\filledcircle}% \hspace{-0.1em}}
+\setbeamertemplate{itemize subitem}{\ocircle}
+
+\AtBeginSection[]{{
+    \setbeamertemplate{headline}{}%
+    \begin{frame}
+      \tableofcontents[
+        currentsection,
+        sectionstyle=show/shaded,
+        subsectionstyle=hide
+      ]
+    \end{frame}
+}}
+
+\AtBeginSubsection[]
+{{
+    \setbeamertemplate{headline}{}%
+    \begin{frame}
+      \tableofcontents[
+        currentsection,
+        sectionstyle=show/shaded,
+        subsectionstyle=show/shaded/hide
+      ]
+    \end{frame}
+}}
+
+% math symbols
+\newcommand{\angled}[1]{\langle #1 \rangle}
+\newcommand{\floored}[1]{\lfloor #1 \rfloor}
+\newcommand{\ceiled}[1]{\lceil #1 \rceil}
+
+
+
+% LMNtal
+\def\means{\mathrel{\!\texttt{:-}}}
+\def\equals{\mathop{\texttt{=}}}
+\newcommand{\rulevar}{\texttt{@}}
+\newcommand{\procvar}{\texttt{\$}}
+\newcommand{\fvstar}{\texttt{*}}
+\newcommand{\react}{{\,\,\texttt{:-}\,\,}}
+\newcommand{\guard}{{\,\texttt{|}\,}}
+\newcommand{\negate}{\texttt{\char '134+}}
+\newcommand{\zero}{\mathbb{0}}
+\newcommand{\pc}{\texttt{,}}
+\newcommand{\lmem}{\texttt{\char '173}}
+\newcommand{\rmem}{\texttt{\char '175}}
+\newcommand{\lpar}{\texttt{\(}}
+\newcommand{\rpar}{\texttt{\)}}
+\newcommand{\mem}[1]{\lmem{#1}\rmem}
+
+
+
+\newcommand{\equivby}[1]{\equiv_{\mbox{\scriptsize #1}}}
+
+\newcommand{\mydagger}{{\color{maincolor} \(\dagger\)}}
+\newcommand{\mfbox}[1]{\fbox{\(#1\)}}
+
+\setbeamertemplate{section in toc}[sections numbered]
+\setbeamertemplate{subsection in toc}[subsections numbered]
+
+

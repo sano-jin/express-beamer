@@ -1,6 +1,9 @@
 all:
 	latexmk tex/slide.tex 
 
+chinese:
+	latexmk tex/zh-cn/slide.tex -jobname=slide-zh-cn
+
 image:
 	docker build -t my-texlive-ja .
 

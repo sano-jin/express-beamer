@@ -1,0 +1,301 @@
+\section{简介}
+
+\begin{frame}
+  \frametitle{Beamer 特点：便于排版数学公式}
+  
+  基本上，\LaTeX 的优点{\footnotesize （和缺点）}按原样适用。
+  \begin{itemize}
+    \okitem \emph{编写公式比 GUI 应用程序容易得多}
+    \okitem \LaTeX 容易与文档直接关联
+    \ngitem \LaTeX 作图难度大一些\footcite{tikz-nakata}，编译也会慢一点
+  \end{itemize}
+
+  \begin{block}{然而, }
+    研讨会中最常见的是「\Emph{定义是什么？}」
+    \begin{itemize}
+      \thusitem \emph{能写数学公式真是太好了}
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{使用方法：Fork \(\rightarrow\) make}
+
+  \begin{block}{准备}
+    \begin{enumerate}
+    \item
+      先 \emph{Fork} 这个仓库
+      \begin{itemize}
+        \item \(\rightarrow\) 在右上角选择你自己作为fork目的地
+      \end{itemize}
+    \item
+      在本地构建时，\\
+      除了正常的 \LaTeX 环境 \emph{安装有 latexmk}
+      \begin{itemize}
+        \butitem 如果没有，请安装 docker
+      \end{itemize}
+    \end{enumerate}
+  \end{block}
+
+  \begin{block}{构建 pdf}
+    使用 latexmk 时\ \raise1pt\hbox{\fbox{\lstinline[language = sh]|make|}}
+  \begin{itemize}
+    \butitem
+    使用docker 时\ \raise1pt\hbox{\fbox{\lstinline[language = sh]|make ondocker|}}
+  \end{itemize}
+  \end{block}
+\end{frame}
+
+\section{第一张幻灯片}
+
+\begin{frame}[fragile]
+  \frametitle{第一张幻灯片：简单的示例}
+  \begin{columns}
+    \begin{column}{0.55\textwidth}
+      \lstinputlisting[
+        language = tex,
+        linewidth = \textwidth
+      ]{./fig/zh-cn/sample-02.tex}
+    \end{column}
+    \begin{column}{0.45\textwidth}
+      \begin{itemize}
+        \item
+        整体正文字符的大小\\
+        可以指定{\footnotesize （现在 10 pt）}
+        \item
+          注释 \alert{以 \% 开始}
+        \item
+          当你想腾出空间时\\
+          「\textbackslash\textvisiblespace」
+        \item
+        Beamer 是什么，\\
+        一张一张的幻灯片\\
+        称为「\Emph{帧}」
+      \end{itemize}
+    \end{column}
+  \end{columns}
+
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{第一张幻灯片：项目符号/列表}
+  \begin{columns}
+    \begin{column}{0.51\textwidth}
+      \lstinputlisting[
+        language = tex,
+        linewidth = \textwidth
+      ]{./fig/zh-cn/sample-03.tex}
+    \end{column}
+    \begin{column}{0.49\textwidth}
+      使用 itemize 表示项目符号
+  
+      \begin{itemize}
+      \item 第一个项目
+      \item 第二个项目
+      \item 第三个项目
+      \end{itemize}
+    \end{column}
+  \end{columns}
+
+  \begin{columns}
+    \begin{column}{0.51\textwidth}
+      \lstinputlisting[
+        language = tex,
+        linewidth = \textwidth
+      ]{./fig/zh-cn/sample-04.tex}
+    \end{column}
+    \begin{column}{0.49\textwidth}
+      枚举型的 顺序 列表 enumerate
+  
+      \begin{enumerate}
+      \item 第一个项
+      \item 第二个项
+      \end{enumerate}
+    \end{column}
+  \end{columns}
+
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{第一张幻灯片：提高要点的{\normalsize 一点}技巧}
+  \begin{columns}
+    \begin{column}{0.54\textwidth}
+      \lstinputlisting[
+        language = tex,
+        linewidth = \textwidth
+      ]{./fig/zh-cn/sample-05.tex}
+    \end{column}
+    \begin{column}{0.46\textwidth}
+      \begin{itemize}
+        \ngitem
+        如果这都是要点，\\
+        我不明白项目之间的关系
+        \thusitem 用好符号可能会很好
+      \end{itemize}
+    \end{column}
+  \end{columns}
+
+  \begin{mybox}{\texttt{\textbackslash item} 宏列表%
+        {\footnotesize （任意定义）}
+    }
+    \begin{itemize}
+      \okitem \verb|\okitem|: OK !
+      \ngitem \verb|\ngitem|: NG
+      \thusitem \verb|\thusitem|: Thus, \dots
+      \butitem \verb|\butitem|: But, \dots
+      \egitem \verb|\egitem|: For example, \dots
+    \end{itemize}
+  \end{mybox}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{第一张幻灯片：强调}
+  \begin{enumerate}
+  \item
+    \emph{強調} 这样做 \verb|\emph{強調}|%
+    \footnote{\insertfootnotemark
+    我在未经许可的情况下覆盖了定义
+    }
+  \item
+    \Emph{高度强调} 这样做 \verb|\Emph{高度强调}|%
+    \footnote{\insertfootnotemark
+    我随意定义的
+    }
+  \item \EMPH{疯狂强调} 可以这样做 \verb|\EMPH{疯狂强调}|%
+    \footnote{\insertfootnotemark
+    我随意定义的
+    }
+  \end{enumerate}
+  
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{第一张幻灯片:块・定义・示例}
+  \begin{columns}
+    \begin{column}{0.52\textwidth}
+      \lstinputlisting[
+        language = tex
+      ]{./fig/zh-cn/sample-06.tex}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{block}{块标题}
+        最初，块填充了与背景不同的颜色,
+        看起来很乱所以我停下来了
+      \end{block}
+    \end{column}
+  \end{columns}
+  \begin{columns}
+    \begin{column}{0.52\textwidth}
+      \lstinputlisting[
+        language = tex
+      ]{./fig/zh-cn/sample-07.tex}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{definition}
+        只有 1 和自身有除数，\\
+        且大于 1 的自然数称为 \emph{素数}
+      \end{definition}
+
+      \begin{example}   
+        \begin{itemize}
+          \okitem 2 是素数．
+          \okitem 3 也是素数．
+          \ngitem 4 不是质数．
+        \end{itemize}
+      \end{example}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{第一张幻灯片：源代码}
+  \lstinputlisting[
+    language = tex,
+    linewidth = 0.7\textwidth
+  ]{./fig/zh-cn/sample-10.tex}
+  \begin{itemize}
+    \item
+    frame 输入代码的时候 \Emph{需要开启 fragile 选项}
+    \item
+    使用相对 Makefile 所在位置的相对路径指定源文件。\\
+    （在这个例子中，\raise1pt\hbox{\fbox{\lstinline[language=sh]|./fig/zh-cn/sample-10.tex|}}）
+    \item
+    有多种选择
+    \begin{itemize}
+      \egitem language, linewidth, $\dots$
+    \end{itemize}
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{第一张幻灯片：插入图片}
+  \begin{columns}
+    \begin{column}{0.67\textwidth}
+      \lstinputlisting[
+        language = tex,
+        linewidth = \textwidth
+      ]{./fig/zh-cn/sample-11.tex}
+    \end{column}
+    \begin{column}{0.33\textwidth}
+      \includegraphics[width = 3cm]{./fig/logo}
+    \end{column}
+  \end{columns}
+    该文件由 Makefile 所在位置的相对路径指定。\\
+    （这是样例，\raise1pt\hbox{\fbox{\lstinline[language=sh]|./fig/logo.jpg|}}）  
+\end{frame}
+
+\section{一点点定制}
+
+{
+\definecolor{maincolor}{RGB}{210, 100, 130}
+\definecolor{accentcolor}{RGB}{0, 170, 210}
+
+\begin{frame}{一点点定制：改变颜色主题}
+  \begin{block}{颜色变更}
+    \Emph{maincolor}，\EMPH{accentcolor} 设置的是，\\
+    更改整个幻灯片的颜色
+    \lstinputlisting[
+      language = tex,
+      linewidth = \textwidth
+    ]{./fig/zh-cn/sample-13.tex}
+    \begin{itemize}
+      \ngitem \textcolor{blue}{原色} 不像现在了
+      \okitem 尝试找一个冷色调
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+}
+
+{
+\setbeamertemplate{headline}{}
+\setbeamercolor{footline}{fg = backgroundcolor}
+
+\begin{frame}{一点点定制：标题和进度表}
+\begin{block}{标题}
+    在幻灯片的顶部是 \emph{标题}
+    \lstinputlisting[
+      language = tex,
+      linewidth = \textwidth
+    ]{./fig/zh-cn/sample-14.tex}
+    你写的时候会消失
+    \begin{itemize}
+    \okitem
+      如果你在幻灯片开始之前写\\
+      没有浪费的空间
+    \end{itemize}
+\end{block}
+
+\begin{block}{进度表}
+    在幻灯片的底部是 \emph{进度表}
+    \lstinputlisting[
+      language = tex,
+      linewidth = \textwidth
+    ]{./fig/zh-cn/sample-12.tex}
+    如果你写，它会消失（与背景色相同）
+  \end{block}
+
+\end{frame}
+}
+
