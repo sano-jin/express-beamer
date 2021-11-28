@@ -9,21 +9,8 @@
 
 \usepackage{listings}
 
-% LMNtal syntax highlighter feat our legendary Nakata (^_^)v!
+% syntax highlight
 \usepackage{sty/source}
-
-% This is for Japanese (You can comment out if you do not use Japanese).
-\usepackage{sty/japanese}
-
-% We should not load the "graphicx" and the "color" package if we are using the loading
-% above "sty/japanese.sty" since it is loading "jlisting", which loads "graphicx"
-% and "color".
-% However, you need to load this (if you want to insert images) when you omit the
-% above "sty/japanese.sty".
-%
-% \usepackage[dvipdfmx]{graphicx}
-
-
 
 \usepackage[
   sorting     = none,
@@ -167,15 +154,15 @@
 \usetikzlibrary {fadings}
 
 \newcommand*{\okmark}{\tikz[baseline=(char.base)]{\node(char)[]{};
-    \draw [line width = 0.9pt, color = maincolor]
+    \draw [line width = 0.9pt]
     (0em, 0.25em) --++ (0.25em, -0.25em) --++ (0.55em, 0.55em); 
   }
 }
 
 \newcommand*{\thusmark}{\tikz[baseline=(char.base)]{\node(char)[]{};
-    \draw [line width = 0.9pt, color = maincolor]
+    \draw [line width = 0.9pt]
     (0em, 0.35em) --++ (0.8em, 0em);
-    \draw [line width = 0.9pt, color = maincolor]
+    \draw [line width = 0.9pt]
     (0.45em, 0.0em) --++ (0.35em, 0.35em) --++ (-0.35em, 0.35em); 
   }
 }
@@ -186,25 +173,25 @@
 }
 
 \newcommand*{\ocircle}{\tikz[baseline=(char.base)]{\node(char)[]{};
-    \draw [line width = 0.7pt, color = maincolor!80]
+    \draw [line width = 0.7pt]
     (0em, 0.35em) circle (0.4em); 
   }
 }
 
 \newcommand*{\ngmark}{\tikz[baseline=(char.base)]{\node(char)[]{};
-    \draw [line width = 0.9pt, color = accentcolor!70]
+    \draw [line width = 0.9pt]
     (0em, 0.6em) --++ (0.6em, -0.6em);
-    \draw [line width = 0.9pt, color = accentcolor!70]
+    \draw [line width = 0.9pt]
     (0em, 0.0em) --++ (0.6em, 0.6em); 
   }
 }
 
 \newcommand*{\otherwisemark}{\tikz[baseline=(char.base)]{\node(char)[]{};
-    \draw [line width = 0.9pt, color = accentcolor!70]
+    \draw [line width = 0.9pt]
     (0em, 0.3em) --++ (1.0em, 0em);
-    \draw [line width = 0.9pt, color = accentcolor!70]
+    \draw [line width = 0.9pt]
     (0.70em, 0.0em) --++ (0.30em, 0.30em) --++ (-0.30em, 0.30em); 
-    \draw [line width = 0.9pt, color = accentcolor!70]
+    \draw [line width = 0.9pt]
     (0.30em, 0.0em) --++ (-0.30em, 0.30em) --++ (0.30em, 0.30em); 
   }
 }
@@ -260,38 +247,12 @@
     \end{frame}
 }}
 
-% math symbols
-\newcommand{\angled}[1]{\langle #1 \rangle}
-\newcommand{\floored}[1]{\lfloor #1 \rfloor}
-\newcommand{\ceiled}[1]{\lceil #1 \rceil}
-
-
-
-% LMNtal
-\def\means{\mathrel{\!\texttt{:-}}}
-\def\equals{\mathop{\texttt{=}}}
-\newcommand{\rulevar}{\texttt{@}}
-\newcommand{\procvar}{\texttt{\$}}
-\newcommand{\fvstar}{\texttt{*}}
-\newcommand{\react}{{\,\,\texttt{:-}\,\,}}
-\newcommand{\guard}{{\,\texttt{|}\,}}
-\newcommand{\negate}{\texttt{\char '134+}}
-\newcommand{\zero}{\mathbb{0}}
-\newcommand{\pc}{\texttt{,}}
-\newcommand{\lmem}{\texttt{\char '173}}
-\newcommand{\rmem}{\texttt{\char '175}}
-\newcommand{\lpar}{\texttt{\(}}
-\newcommand{\rpar}{\texttt{\)}}
-\newcommand{\mem}[1]{\lmem{#1}\rmem}
-
-
-
-\newcommand{\equivby}[1]{\equiv_{\mbox{\scriptsize #1}}}
-
-\newcommand{\mydagger}{{\color{maincolor} \(\dagger\)}}
 \newcommand{\mfbox}[1]{\fbox{\(#1\)}}
 
 \setbeamertemplate{section in toc}[sections numbered]
 \setbeamertemplate{subsection in toc}[subsections numbered]
 
+
+\usepackage{amsmath}
+\usepackage{cleveref}
 

@@ -1,5 +1,9 @@
 \mode<presentation>
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The progress bar, appears on the bottom
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \makeatletter
 \def\progressbar@progressbar{}  % the progress bar
 \newcount\progressbar@tmpcounta % auxiliary counter
@@ -21,7 +25,7 @@
   \divide\progressbar@tmpdim by \progressbar@tmpcountb
   \multiply\progressbar@tmpdim by 100
 
-\begin{tikzpicture}
+  \begin{tikzpicture}
     \fill[color = backgroundcolor]
     (0pt, 0pt) rectangle ++ (\progressbar@pbwd, \progressbar@pbht);
 
@@ -31,17 +35,22 @@
   \end{tikzpicture}%
 }
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Headline with sectioning
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \setbeamertemplate{headline}{%
-   \ifnum \theframenumber=1
-   % This is the title frame, do nothing
-   \else
-   \leavevmode%
-   \hbox{%
-     \begin{beamercolorbox}[wd = \paperwidth, ht = 3.4ex, dp = 1.5ex]{palette}%
-       \insertsectionnavigationhorizontal{\paperwidth}{}{\hskip0pt plus1filll}
-     \end{beamercolorbox}%
-   }
-   \fi
+  \ifnum \theframenumber=1
+  % This is the title frame, do nothing
+  \else
+  \leavevmode%
+  \hbox{%
+    \begin{beamercolorbox}[wd = \paperwidth, ht = 3.4ex, dp = 1.5ex]{palette}%
+      \insertsectionnavigationhorizontal{\paperwidth}{}{\hskip0pt plus1filll}
+    \end{beamercolorbox}%
+  }
+  \fi
 }
 
 \usetikzlibrary{shapes}
@@ -76,61 +85,77 @@
 }
 
 
-\setbeamertemplate{footline}{
-   \ifnum \theframenumber=1
-   % This is the title frame, do nothing
-   \else
-   \begin{beamercolorbox}[wd=\paperwidth, ht=1cm]{page number in head/foot} 
-     \begin{tikzpicture}
-       \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Foot line
+% - progress bar
+% - page number
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-       \progressbar@progressbar%
-       
-       \node[above left, font=\large] at (\the\paperwidth - 1em, 0.1cm){
-         \usebeamercolor[fg]{page number in head/foot}%
-         \usebeamerfont{page number in head/foot}%
-         \insertpagenumber%
-         \footnotesize/\inserttotalframenumber
-       };
-       
-     \end{tikzpicture}
-   \end{beamercolorbox}
-   \fi
+\setbeamertemplate{footline}{%
+  \nointerlineskip% 
+  \ifnum\theframenumber=1%
+  % This is the title frame, do nothing
+  \else
+  \begin{beamercolorbox}[wd=\paperwidth, ht=1cm]{page number in head/foot} 
+    \begin{tikzpicture}
+      \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+
+      % the progress bar
+      \progressbar@progressbar%
+      
+      % the page number
+      \node[above left] at (\the\paperwidth - 1em, 0.1cm){%
+        \usebeamercolor[fg]{page number in head/foot}%
+        \usebeamerfont{page number in head/foot}%
+        \insertpagenumber%
+        \scalebox{0.7}{/\inserttotalframenumber}%
+      };
+      
+    \end{tikzpicture}
+  \end{beamercolorbox}
+  \fi
 }
 
 \makeatother
 
+
+
+
+
 \setbeamertemplate{background}{
-    \begin{tikzpicture}
-      \useasboundingbox (0, 0) rectangle(\the\paperwidth,\the\paperheight);  
-      \fill[backgroundcolor, opacity = 1]
-      (0, 0) rectangle(\the\paperwidth,\the\paperheight + 5cm);
-    \end{tikzpicture}
+  \begin{tikzpicture}
+    \useasboundingbox (0, 0) rectangle(\the\paperwidth,\the\paperheight);  
+    \fill[backgroundcolor, opacity = 1]
+    (0, 0) rectangle(\the\paperwidth,\the\paperheight + 5cm);
+  \end{tikzpicture}
 }
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Frame title
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \defbeamertemplate*{frametitle}{crystalline}[1][]{%
   \begin{beamercolorbox}[wd=\paperwidth, ht=1cm]{frametitle} 
-  \begin{tikzpicture}
-    \useasboundingbox (0, -1pt) rectangle(\the\paperwidth,\the\paperheight);
+    \begin{tikzpicture}
+      \useasboundingbox (0, -1pt) rectangle(\the\paperwidth,\the\paperheight);
 
-    \fill [draw,
-      line width = 1pt,
-      top color = black!10!backgroundcolor, % !30!white,
-      middle color = backgroundcolor,
-      bottom color = backgroundcolor,
-    ] (0, -4pt) rectangle(\the\paperwidth, 0.5pt);
-    
-    \fill [color = maincolor] (0, 0pt) rectangle(\the\paperwidth, 1cm);
-    
-    \usebeamercolor{footline}
-    \node[right] at (0.3, 0.5cm){
-      \color{frametitle.fg}
-      \insertframetitle
-    };
+      \fill [draw,
+        line width = 1pt,
+        top color = black!10!backgroundcolor, % !30!white,
+        middle color = backgroundcolor,
+        bottom color = backgroundcolor,
+      ] (0, -4pt) rectangle(\the\paperwidth, 0.5pt);
+      
+      \fill [color = maincolor] (0, 0pt) rectangle(\the\paperwidth, 1cm);
+      
+      \usebeamercolor{footline}
+      \node[right] at (0.3, 0.5cm){
+        \color{frametitle.fg}
+        \insertframetitle
+      };
 
-    
-  \end{tikzpicture}
+      
+    \end{tikzpicture}
   \end{beamercolorbox}
 }
 

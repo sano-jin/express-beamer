@@ -1,5 +1,8 @@
 \mode<presentation>
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Setting color theme 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \definecolor{backgroundcolor}{RGB}{235, 235, 235}
 \definecolor{textcolor}{RGB}{100, 100, 100}
 \definecolor{maincolor}{RGB}{70, 164, 199}
@@ -10,18 +13,21 @@
 % \definecolor{maincolor}{RGB}{255, 241, 118}
 % \definecolor{accentcolor}{RGB}{70, 164, 199}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \setbeamercolor{alerted text}{fg = accentcolor}
 \setbeamercolor{background canvas}{bg = backgroundcolor}
 \setbeamercolor{block body alerted}{fg = accentcolor}
 \setbeamercolor{block body}{bg = backgroundcolor, fg = normal text.fg}
 \setbeamercolor{block body example}{bg = backgroundcolor, fg = normal text.fg}
-\setbeamercolor{block title alerted}{
+\setbeamercolor{block title alerted}{%
   use = {normal text, alerted text},
   fg = alerted text.fg,
   bg = alerted text.bg
 }
 \setbeamercolor{block title}{bg = backgroundcolor, fg = maincolor}
-\setbeamercolor{block title example}{
+\setbeamercolor{block title example}{%
   use = {normal text, example text},
   fg = block title.fg,
   bg = block title.bg
@@ -61,8 +67,6 @@
 \setbeamercolor{footnote}{fg = textcolor!80}
 \setbeamercolor{page number in head/foot}{fg = maincolor}
 
-% \setbeamercolor{enumerate item}{fg = maincolor!70}
-% \setbeamercolor{itemize item}{fg = maincolor!70}
 
 \setbeamercolor{section in toc}{fg = maincolor}
 \setbeamercolor{subsection in toc}{fg = maincolor}
@@ -80,7 +84,7 @@
 
 \setbeamercolor{toc}{fg=textcolor!60}
 
-\mode
+\mode%
 <all>
 
 
