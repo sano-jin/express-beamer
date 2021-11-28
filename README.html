@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>README.html</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+
+</head>
+
+<body>
+
+<h1 id="express-beamer">Express-Beamer</h1>
+
+<p>Yet another Beamer theme !
+Please tell me if you have any request, advice, etc&#8230;!!!</p>
+
+<p><a href="/slide.pdf">/slide.pdf</a> is the output pdf.</p>
+
+<figure>
+<img src="/doc/slide-4up.png" alt="slide image" />
+<figcaption>slide image</figcaption>
+</figure>
+
+<h2 id="gettingstarted">Getting started</h2>
+
+<h3 id="prerequisites">Prerequisites</h3>
+
+<ul>
+<li>latexmk</li>
+</ul>
+
+<h3 id="installation">Installation</h3>
+
+<pre><code class="bash">git clone https://github.com/sano-jin/express-beamer.git`
+make
+</code></pre>
+
+<h3 id="usage">Usage</h3>
+
+<p>The following code shows a minimal example of a Beamer presentation.</p>
+
+<pre><code class="tex">\documentclass[xetex, unicode, 10pt]{beamer}
+\usepackage{sty/style} 
+\title{A minimal example}
+\date{\today}
+\author{Author}
+\institute{Institute}
+\begin{document}
+  \maketitle
+  \section{First Section}
+  \begin{frame}{First Frame}
+    Hello, world!
+  \end{frame}
+\end{document}
+</code></pre>
+
+<p>Take a look at <a href="/tex/slide.tex">/tex/slide.tex</a> and edit this.</p>
+
+<p>The output <a href="/slide.pdf">/slide.pdf</a> is quite self explanatory (or at least, designed to be).
+Please take a look at it!</p>
+
+<h3 id="customization">Customization</h3>
+
+<p>Customization is fairly easy.</p>
+
+<p>for example, if you want to change color schemes, you can just overwrite the default color theme like following:</p>
+
+<pre><code class="tex">\definecolor{backgroundcolor}{RGB}{50, 50, 50}
+\definecolor{textcolor}{RGB}{235, 235, 235}
+\definecolor{maincolor}{RGB}{255, 241, 118}
+\definecolor{accentcolor}{RGB}{70, 164, 199}
+</code></pre>
+
+<p>Then you can get the following slide. Beautiful!</p>
+
+<figure>
+<img src="/doc/dark-theme-slide-4up.png" alt="slide image" />
+<figcaption>slide image</figcaption>
+</figure>
+
+<h2 id="contact">Contact</h2>
+
+<p>Feel free to contact me at <a href="https://twitter.com/sano65747676">twitter@sano65747676</a>.</p>
+
+<h2 id="directorystructure">Directory Structure</h2>
+
+<pre><code>+ tex/             # A directory for &quot;tex&quot; files.
+|  + slide.tex     # What you need to edit.
+|
++ fig/             # A directory for some figures and source codes.
+|  + sample.tex    # A sample source code.
+|  + logo.png      # Your Logo! Please replace it with your own!
+|
++ sty/             # A directory for &quot;sty&quot;ling files.
+|  |
+|  + style.sty     # The main file for styling.
+|  + source.sty    # For syntax highlighting source codes.
+|  + citation      # For the custom &quot;footcite&quot;.
+|
++ theme/           # Adirectory for our custom theme.
+|  + ...           # Some styling files.
+|
++ ref.bib          # For citing the references.
++ Makefile
++ latexmkrc
++ slide.pdf        # Output slide!
+</code></pre>
+
+</body>
+</html>
