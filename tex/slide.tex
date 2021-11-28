@@ -1,16 +1,16 @@
 \documentclass[xetex, unicode, 10pt]{beamer}
 \usepackage{sty/style} 
 
-\title{
-  自作 Beamer テーマ：\\
-  ゼミ用のスライドデザイン
+\title{%
+  Custom \LaTeX{} Beamer Theme:\\
+  Foo is not bar but foo
 }
 \subtitle{A Modern Beamer Theme}
-\author{佐野\ 仁}
+\author{Jin SANO}
 \institute{%
-  早稲田大学\ 基幹理工学部\\
-  情報理工学科\ 4年\ 上田研究室\\
-  xxxxxx-x
+  Waseda University\\
+  Tokyo, Japan\\
+  twitter@sano65747676
 }
 \date{\today}
 \titlegraphic{\includegraphics[width = 2cm]{fig/logo}} 
@@ -21,12 +21,12 @@
 
 \include{tex/01-abstraction}
 \include{tex/02-introduction}
-\include{tex/03-samples}
+\include{tex/03-custom}
 \include{tex/99-conclusion}
 
-\begin{frame}[allowframebreaks, noframenumbering]{参考文献}
+\begin{frame}[allowframebreaks, noframenumbering]{References}
   \printbibheading[heading = none]
-  \printbibliography
+  \printbibliography%
 \end{frame}
 
 \end{document}

@@ -64,11 +64,6 @@ Then you can get the following slide. Beautiful!
 
 Feel free to contact me at [twitter@sano65747676](https://twitter.com/sano65747676).
 
-## Todos
-
-- [ ] Translate Japanese in the slide to English.
-- [ ] Provide the way to merge files into one `sty` file.
-
 
 ## Directory Structure
 ```
@@ -82,9 +77,7 @@ Feel free to contact me at [twitter@sano65747676](https://twitter.com/sano657476
 + sty/             # A directory for "sty"ling files.
 |  |
 |  + style.sty     # The main file for styling.
-|  + source.sty    # For syntax highlighting LMNtal source codes.
-|  + japanese.sty  # For some Japanese settings.
-|  + jlisting.sty  # For source codes using Japanese.
+|  + source.sty    # For syntax highlighting source codes.
 |  + citation      # For the custom "footcite".
 |
 + theme/           # Adirectory for our custom theme.
@@ -95,7 +88,6 @@ Feel free to contact me at [twitter@sano65747676](https://twitter.com/sano657476
 + latexmkrc
 + slide.pdf        # Output slide!
 ```
-
 
 
 

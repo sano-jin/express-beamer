@@ -1,8 +1,11 @@
 \mode<presentation>
 
-\defbeamertemplate*{title page}{crystalline}[1][]{
-   \nointerlineskip 
-  \begin{beamercolorbox}[wd=\the\paperwidth, ht=\the\paperheight, sep = 0pt, dp = 0pt, #1]{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Title page
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\defbeamertemplate*{title page}{crystalline}[1][]{%
+  \nointerlineskip%
+  \begin{beamercolorbox}[wd=\the\paperwidth, ht=\the\paperheight, sep = 0pt, dp = 0pt, #1]{%
       title,
       subtitle,
       date,
@@ -34,7 +37,7 @@
               {\usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate\par}
               {\usebeamerfont{institute}\usebeamercolor[fg]{institute}\insertinstitute\par}
               \vspace{0.3em}
-              {\usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor\par}
+                     {\usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor\par}
             \end{minipage}
             & \begin{minipage}{0.2\paperwidth}
                 \hfill\inserttitlegraphic
@@ -49,5 +52,4 @@
   \end{beamercolorbox}
 }
 
-\mode
-<all>
+\mode<all>

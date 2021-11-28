@@ -1,0 +1,46 @@
+\section{Customizing the theme}
+
+{
+\definecolor{maincolor}{RGB}{210, 100, 130}
+\definecolor{accentcolor}{RGB}{0, 170, 210}
+
+\begin{frame}{Change colors}
+    Set \Emph{maincolor}，\EMPH{accentcolor} to change the color theme
+    \lstinputlisting[
+      language = tex,
+      linewidth = \textwidth
+    ]{./fig/sample-13.tex}
+    \begin{itemize}
+      \ngitem Do not just use \textcolor{blue}{primary colors}
+        \okitem but cooler one! (You may like to google ``Material Design, Color'')
+    \end{itemize}
+\end{frame}
+}
+
+{
+\setbeamertemplate{headline}{}
+\setbeamercolor{footline}{fg = backgroundcolor}
+
+\begin{frame}{Header and the progress bar}
+\begin{block}{Header}
+  The \emph{header} can be eliminated if you add the following command  
+  \lstinputlisting[
+      language = tex,
+      linewidth = \textwidth
+    ]{./fig/sample-14.tex}
+    \begin{itemize}
+    \okitem
+      You won't get the extra space on top if you write this before the first frame
+    \end{itemize}
+\end{block}
+
+\begin{block}{Progress Bar}
+    You can eliminate \emph{Progress bar} as follows:
+    \lstinputlisting[
+      language = tex,
+      linewidth = \textwidth
+    ]{./fig/sample-12.tex}
+  \end{block}
+\end{frame}
+}
+

@@ -1,10 +1,6 @@
 % This is for the custom "footcite"
 % so that we can have a more detailed info in the footnote when we cite in the slide.
 
-% fullcite したときに，ホントに「フルに」出典を書かないようにする
-% footcite を foot note を使って無理やり作り直したのだけれど，
-% そこで fullcite を使っているから（超アホなことをしている気はする）
-%
 % This clears some fields (e.g. url) when we use "fullcite".
 % This is needed since I have created my own "footcite" using the "fullcite"
 % (I do not want my footnotes to be a mess).
@@ -49,7 +45,6 @@
   {\usebibmacro{postnote}
 }%
   
-% 自作 footcite（アホ大戦!）
 % My own footcite (Again, it's rubbish...!)
 \renewcommand{\footcite}[1]{%
     \supercite{#1}%
