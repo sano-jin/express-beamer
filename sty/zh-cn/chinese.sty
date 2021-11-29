@@ -1,0 +1,39 @@
+% These are for Japanese
+% You can ommit this if you do not need to print Japanese.
+
+\usepackage{unicode-math}
+\setmathfont{latinmodern-math.otf}
+\setmathfont[range=\setminus]{Asana-Math.otf}
+
+\usepackage{xeCJK}
+
+\setsansfont[
+  Path = ./font/SourceHanSerif/,
+  BoldFont = ../SourceHanSerif/SourceHanSerifSC-Bold.otf,
+  ItalicFont = ../Roboto/Roboto-Italic.ttf,
+  BoldItalicFont = ../Roboto/Roboto-BoldItalic.ttf,
+] {SourceHanSerifSC-Regular.otf}
+
+\setCJKmainfont[
+  Path = ./font/SourceHanSerif/,
+  BoldFont = ../SourceHanSerif/SourceHanSerifSC-Bold.otf,
+  ItalicFont = ../SourceHanSerif/SourceHanSerifSC-Regular.otf,
+  BoldItalicFont  = ../SourceHanSerif/SourceHanSerifSC-Bold.otf,
+] {SourceHanSerifSC-Regular.otf}
+
+
+\usepackage{zxjatype}
+
+\setmonofont[Scale = 1,
+  Path = ./font/Inconsolata/,
+  BoldFont = Inconsolata-Bold.ttf,
+  ItalicFont = ../Roboto/Roboto-Italic.ttf,
+  BoldItalicFont = Inconsolata-Bold.ttf,
+]{Inconsolata-Regular.ttf}
+
+\setjamonofont[Scale = 0.9,
+  Path = ./font/SourceHanSerif/,
+  BoldFont = ../SourceHanSerif/SourceHanSerifSC-Bold.otf,
+  ItalicFont = ../SourceHanSerif/SourceHanSerifSC-Regular.otf,
+  BoldItalicFont  = ../SourceHanSerif/SourceHanSerifSC-Bold.otf,
+] {SourceHanSerifSC-Regular.otf}
